@@ -3,7 +3,9 @@
 #
 
 # We assume C build environments
-language: C
+language: c
+os: linux
+dist: xenial
 
 # Run as is
 script:
@@ -20,8 +22,6 @@ branches:
 
 # Notify the LuaDist Dev group if needed
 notifications:
-  recipients:
-    - luadist-dev@googlegroups.com
   email:
     on_success: change
     on_failure: always
