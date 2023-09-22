@@ -1,3 +1,4 @@
 _bootstrap/
 _install/
 .env.local
+*.log
