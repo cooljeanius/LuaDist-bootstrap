@@ -1,0 +1,22 @@
+name: cooljeanius/LuaDist-bootstrap
+on:
+  push:
+    branches:
+    - "**/*"
+    - master
+  pull_request:
+concurrency:
+#   # This item has no matching transformer
+#   maximum_number_of_builds: 0
+jobs:
+  test:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.0.0
+    - run: "./bootstrap"
+    - run: "./_install/bin/luadist list"
+#     # This item has no matching transformer
+#     - email:
+#         on_success: change
+#         on_failure: always
