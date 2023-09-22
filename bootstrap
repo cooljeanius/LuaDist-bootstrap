@@ -5,6 +5,8 @@
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
+set -x
+
 REPO=`dirname "$(cd ${0%/*} && echo $PWD/${0##*/})"`
 BOOT=$REPO/_bootstrap
 BUILD=$BOOT/tmp
