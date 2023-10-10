@@ -12,7 +12,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4.0.0
     - run: "./bootstrap"
-    - run: "./_install/bin/luadist list"
+    - run: "if test -x ./_install/bin/luadist; then ./_install/bin/luadist list; else if test -d ./_install/bin; then ls ./_install/bin; else ls -AR; fi"
 #     # This item has no matching transformer
 #     - email:
 #         on_success: change
