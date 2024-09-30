@@ -1,19 +1,16 @@
+---
 name: cooljeanius/LuaDist-bootstrap
 on:
   push:
     branches:
-    - "**/*"
-    - master
+      - "**/*"
+      - master
   pull_request:
 jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-    - name: checkout
-      uses: actions/checkout@v4.2.0
-    - run: "./bootstrap"
-    - run: "if test -x ./_install/bin/luadist; then ./_install/bin/luadist list; elif test -d ./_install/bin; then ls ./_install/bin; else ls -AR; fi"
-#     # This item has no matching transformer
-#     - email:
-#         on_success: change
-#         on_failure: always
+      - name: checkout
+        uses: actions/checkout@v4.2.0
+      - run: "./bootstrap"
+      - run: "if test -x ./_install/bin/luadist; then ./_install/bin/luadist list; elif test -d ./_install/bin; then ls ./_install/bin; else ls -AR; fi"
