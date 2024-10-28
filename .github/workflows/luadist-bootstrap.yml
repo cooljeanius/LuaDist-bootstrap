@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
       - run: "./bootstrap"
-      - run: "if test -x ./_install/bin/luadist; then ./_install/bin/luadist list; elif test -d ./_install/bin; then ls ./_install/bin; else ls -AR; fi"
+      - run: |
+          if test -x ./_install/bin/luadist; then \
+            ./_install/bin/luadist list; \
+          elif test -d ./_install/bin; then \
+            ls ./_install/bin;
+          else \
+            sync && ls -AR; \
+          fi
